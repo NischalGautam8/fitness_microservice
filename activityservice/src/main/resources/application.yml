@@ -1,0 +1,19 @@
+server:
+  port: 8082
+spring: 
+  application: 
+    name: activityservice
+  data:
+    mongodb:
+      uri: mongodb+srv://nischalgautam7200:nischal@cluster0.vlz65rp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: fitness_microservice
+      ssl:
+        enabled: true
+      auto-index-creation: true
+      connection-pool-size: 100
+      connect-timeout: 5000
+      socket-timeout: 3000
+      max-wait-time: 1500
+      max-connection-life-time: 30000
+
+# mongodb+srv://nischalgautam7200:<db_password>@cluster0.vlz65rp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
