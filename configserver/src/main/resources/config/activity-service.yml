@@ -1,0 +1,32 @@
+server:
+  port: 8082
+spring: 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      uri: mongodb+srv://nischalgautam7200:nischal@cluster0.vlz65rp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: fitness_microservice
+      ssl:
+        enabled: true
+      auto-index-creation: true
+  cloud:
+    config:
+      enabled: false
+      import-check:
+        enabled: false
+eureka: 
+  client: 
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+rabbitmq:
+  exchange:
+    name: fitness.exchange
+  queue:
+    name: activity.queue  # Added the 'name:' key here
+  routing:
+    key: activity.tracking     # This line may also need a key
+# mongodb+srv://nischalgautam7200:db_password>@cluster0.vlz65rp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

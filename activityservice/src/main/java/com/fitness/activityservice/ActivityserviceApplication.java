@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ActivityserviceApplication {
 
-  //mvnw.cmd spring-boot:run
+  //mvn spring-boot:run -DskipTests
   public static void main(String[] args) {
     SpringApplication.run(ActivityserviceApplication.class, args);
   }
