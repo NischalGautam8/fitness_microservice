@@ -52,7 +52,11 @@ The application uses MongoDB Atlas. Make sure to update the MongoDB connection s
    taskkill /PID <PID> /F
    ```
 ## Running the Application
-
+TO run all the services use this command in powershell in root directrory
+```bash
+./start-all.ps1
+```
+else you can follow these steps manually:
 ### 1. Start the Config Server
 ```bash
 cd configserver
