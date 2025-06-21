@@ -11,7 +11,7 @@ The application consists of the following microservices:
 - **User Service**: User management and authentication
 - **Activity Service**: Activity tracking and management
 - **AI Service**: AI-powered fitness recommendations
-
+ 
 ## Prerequisites
 
 - Java 21
@@ -20,9 +20,9 @@ The application consists of the following microservices:
 - MongoDB
 - RabbitMQ
 - Keycloak
-
+8 terminals required
 ## Required Services Setup
-
+mvn clean install (to install dependencies)
 ### 1. RabbitMQ
 Run RabbitMQ using Docker:
 ```bash
@@ -31,17 +31,26 @@ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-manag
 Access RabbitMQ Management Console at: http://localhost:15672
 - Default credentials: guest/guest
 
-### 2. Keycloak
+### 2. Keycloak 
+
 Run Keycloak using Docker:
 ```bash
 docker run -p 8181:8080 -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:26.2.4 start-dev
+
 ```
 Access Keycloak Admin Console at: http://localhost:8181
 - Admin credentials: admin/admin
 
 ### 3. MongoDB
 The application uses MongoDB Atlas. Make sure to update the MongoDB connection string in the configuration files with your credentials.
-
+   To kill a process running on port 8080:
+   ```bash
+   # Find the process ID (PID)
+   netstat -ano | findstr "8080"
+   
+   # Kill the process using the PID
+   taskkill /PID <PID> /F
+   ```
 ## Running the Application
 
 ### 1. Start the Config Server
@@ -64,7 +73,7 @@ mvn spring-boot:run
 
 ### 4. Start the User Service
 ```bash
-cd userservice
+cd userservice/userservice
 mvn spring-boot:run
 ```
 
@@ -74,12 +83,18 @@ cd activityservice
 mvn spring-boot:run
 ```
 
+
 ### 6. Start the AI Service
 ```bash
 cd aiservice
 mvn spring-boot:run
 ```
-
+### Run frontend
+```bash
+cd frontend
+npm i 
+npm run dev
+```
 ## Service Ports
 
 - Config Server: 8888
@@ -148,7 +163,7 @@ mvn test
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
-
+`mvn clean install` to install dependencies
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.

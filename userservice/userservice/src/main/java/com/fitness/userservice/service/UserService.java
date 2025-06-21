@@ -70,7 +70,6 @@ public class UserService {
 
   public Boolean existByUserId(String userId) {
     log.info("Calling User Validation API for userId: {}", userId);
-    return true; //only for now
-//    return repository.existsByKeycloakId(userId);
+    return repository.existsByKeycloakId(userId);
   }
 }
